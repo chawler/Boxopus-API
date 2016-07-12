@@ -134,7 +134,6 @@ class Boxopus:
         params = {'hashes[]': [item['hash'] for item in items]}
         ret = self._request('/tasks/info', data=params)
         for info in json.loads(ret.content):
-            print info
             for item in items:
                 if cmp(info['hash'], item['hash']) == 0:
                     item['percentDone'] = info['percentDone']
